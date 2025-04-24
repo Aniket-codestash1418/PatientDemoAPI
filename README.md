@@ -52,7 +52,7 @@ This is an ASP.NET Core Web API for searching practitioner details.
 
 - `GET /api/Practitioner/searchPractitioner`
 
-![Screenshot](assets/)
+![Screenshot](assets/hospital_list.JPG)
 
 ## Getting Started
 
