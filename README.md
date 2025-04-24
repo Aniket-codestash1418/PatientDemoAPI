@@ -52,6 +52,8 @@ This is an ASP.NET Core Web API for searching practitioner details.
 
 - `GET /api/Practitioner/searchPractitioner`
 
+![Screenshot](assets/)
+
 ## Getting Started
 
 1. Clone the repo
