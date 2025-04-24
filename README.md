@@ -12,7 +12,8 @@ It allows adding,and retrieving patient information.
 
 - `POST /api/PatientDetails/addPatientDetails`
 - `GET /api/PatientDetails/patientEncounters`
-
+![Screenshot](assets/patient_list.JPG)
+![Screenshot](assets/patient_list.JPG)
 
 #Hospital Data API
 This is an ASP.NET Core Web API for managing Hospital data.  
@@ -30,7 +31,8 @@ It allows adding,and retrieving Hospital information and searching hospitl by na
 - `GET /api/Hospital/getHospitalData`
 - `GET /api/Hospital/searchHospitals`
 ![Screenshot](assets/hospital_list.JPG)
- 
+
+
 #Encounters API
 This is an ASP.NET Core Web API for logging Patient Encounters.  
 
