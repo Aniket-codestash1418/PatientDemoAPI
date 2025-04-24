@@ -48,7 +48,14 @@ namespace PatientDemoAPI
 
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
+
+            app.UseRouting();
+
+            app.UseDefaultFiles();    //  this looks for index.html
+            app.UseStaticFiles();     //  this serves static files
+
             app.UseAuthorization();
+
 
 
             app.MapControllers();

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Encounters</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #searchSection {
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            padding: 5px;
+            font-size: 16px;
+            width: 200px;
+        }
+        button {
+            padding: 6px 12px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        nav {
+            background-color: #007bff;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+       
+        <a href="index.html">Hospitals</a>
+        <a href="PatientEncounters.html">PatientEncounters</a>
+        <a href="practitioners.html">Practitioners</a>
+        <a href="encounters.html">Encounters</a>
+    </nav>
+    <h1>Patient Encounters List</h1>
+
+    <div id="searchSection">
+        <input type="number" id="patientIdInput" placeholder="Enter Patient ID" min="1" />
+        <button onclick="fetchEncounters()">Search</button>
+    </div>
+
+    <table id="PatientEncounterTable">
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Practitioner Name</th>
+                <th>Date</th>
+                <th>Reason</th>
+                <th>Notes</th>
+                <th>Diagnosis</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        async function fetchEncounters() {
+            const patientId = document.getElementById("patientIdInput").value;
+
+            if (!patientId || isNaN(patientId)) {
+                alert("Please enter a valid patient ID.");
+                return;
+            }
+
+            try {
+    const response = await fetch(`https://localhost:7147/api/PatientDetails/patientEncounters?id=${patientId}`);
+    if (!response.ok) throw new Error("Failed to fetch data");
+
+    const jsonResponse = await response.json();
+    const data = jsonResponse.data;
+
+    const tableBody = document.querySelector("#PatientEncounterTable tbody");
+    tableBody.innerHTML = ""; // Clear previous data
+
+    if (Array.isArray(data) && data.length > 0) {
+        data.forEach(encounter => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${encounter.patientName}</td>
+                <td>${encounter.practitionerName}</td>
+                <td>${new Date(encounter.date).toLocaleDateString()}</td>
+                <td>${encounter.reason}</td>
+                <td>${encounter.notes}</td>
+                <td>${encounter.diagnosis}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    } else {
+        // Show "no records found" message as a row
+        const row = document.createElement("tr");
+        row.innerHTML = `<td colspan="6" style="text-align:center;">No records found</td>`;
+        tableBody.appendChild(row);
+    }
+
+} catch (err) {
+    console.error(err);
+    alert("An error occurred while fetching encounters.");
+}
+
+
+        }
+    </script>
+
+</body>
+</html>

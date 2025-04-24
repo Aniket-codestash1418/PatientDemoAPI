@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Management</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        nav {
+            background-color: #007bff;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🔗 Navigation -->
+    <nav>
+       
+        <a href="index.html">Hospitals</a>
+        <a href="PatientEncounters.html">PatientEncounters</a>
+        <a href="practitioners.html">Practitioners</a>
+        <a href="encounters.html">Encounters</a>
+    </nav>
+
+    <h1>Hospital List</h1>
+
+    <table id="hospitalTable">
+        <thead>
+            <tr>
+                <th>Hospital Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>PhoneNumber</th>
+                <th>Email</th>
+                <th>Practitioner Name</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
