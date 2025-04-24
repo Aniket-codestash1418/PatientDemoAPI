@@ -29,6 +29,7 @@ It allows adding,and retrieving Hospital information and searching hospitl by na
 - `POST /api/Hospital/addHospitalDetails`
 - `GET /api/Hospital/getHospitalData`
 - `GET /api/Hospital/searchHospitals`
+![Screenshot](assets/hospital_list.JPG)
  
 #Encounters API
 This is an ASP.NET Core Web API for logging Patient Encounters.  
@@ -52,7 +53,7 @@ This is an ASP.NET Core Web API for searching practitioner details.
 
 - `GET /api/Practitioner/searchPractitioner`
 
-![Screenshot](assets/hospital_list.JPG)
+
 
 ## Getting Started
 
